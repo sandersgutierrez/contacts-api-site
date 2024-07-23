@@ -44,7 +44,7 @@
         "webpack-dev-server": "4.15.0"
     },
     "engines": {
-        "node": ">=18",
-        "npm": ">=8"
+        "node": ">=20",
+        "npm": ">=20"
     }
 }
