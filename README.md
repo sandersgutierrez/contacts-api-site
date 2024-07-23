@@ -2,14 +2,14 @@
 
 ## :thought_balloon: What is it?
 
-Contacts API is a REST API to save my list contacts. I will have access to everything information of my contacts as phone, address or email.
+Contacts API is a REST API to manage a contact list. You will have access to all the information of your contacts such as phone, address or email. You will be able to add, delete and/or modify contacts and contact groups along with all the information related to each contact birthday, important health notes such as allergies etc.
 
 ## :checkered_flag: How To Start
 
 1. Clone this repository:
 
 ```shell
-git clone https://github.com/sandersgutierrez/contacts-api-site.git
+git clone https://github.com/untalsanders/contacts-api-site.git
 ```
 
 2. Install Nodejs. **Go link for install [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)**
@@ -39,8 +39,8 @@ npm run dev
 
 ## :wolf: Author
 
-- [Sanders Gutiérrez](https://sandersgutierrez.github.io) - System Engineer (Java Developer)
+- [Sanders Gutiérrez](https://untalsanders.github.io) - System Engineer (Java Developer)
 
 ## :unlock: License
 
-This project is open-sourced software licensed under the [MIT license](LICENSE).
+This project is open-sourced software licensed under the [AGPL-3.0 license](LICENSE).
