@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es6",
+        "moduleResolution": "node",
+        "declaration": false,
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "allowJs": true,
+        "noLib": false,
+        "skipLibCheck": true,
+        "esModuleInterop": true
+    },
+    "include": ["src/**/*", "src/*"],
+    "exclude": ["node_module"]
+}

@@ -8,7 +8,7 @@ import Contact, { action as contactAction, loader as contactLoader } from './con
 import { action as deleteAction } from './destroy'
 import EditContact, { action as editAction } from './edit'
 import ErrorPage from './error-page'
-import Index from './home'
+import Home from './home'
 
 const routes = [
     {
@@ -23,7 +23,7 @@ const routes = [
                 children: [
                     {
                         index: true,
-                        element: <Index />,
+                        element: <Home />,
                     },
                     {
                         path: 'contacts/:id',

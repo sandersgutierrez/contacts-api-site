@@ -1,31 +1,33 @@
 'use strict'
 
 const { DefinePlugin } = require('webpack')
-const path = require('path')
+const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, argv) => ({
     mode: argv.mode || 'production',
-    entry: './src/index.jsx',
+    entry: './src/index.tsx',
     output: {
-        path: path.join(process.cwd(), 'dist'),
+        filename: '[name].[chuckhash].js',
+        path: resolve(__dirname, 'dist'),
         publicPath: env.production ? '/contacts-api-site' : '',
         clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: [path.resolve(__dirname, 'src', 'assets')],
+        static: [resolve(__dirname, 'src', 'assets')],
         compress: true,
     },
     resolve: {
         alias: {
-            '@': path.join(process.cwd(), 'src'),
+            '@': resolve(__dirname, 'src'),
         },
+        extensions: ['.js', '.ts', '.jsx', '.tsx'],
     },
     module: {
         rules: [
             {
-                test: /\.(?:js|jsx)$/,
+                test: /\.(?:js|ts|jsx|tsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: ['babel-loader'],
             },
@@ -34,9 +36,6 @@ module.exports = (env, argv) => ({
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
-    },
-    resolve: {
-        extensions: ['*', '.js', '.jsx'],
     },
     plugins: [
         new HtmlWebpackPlugin({
