@@ -1,12 +1,12 @@
 'use strict'
 
-export default function Index() {
+export default function Home() {
     return (
         <p id="zero-state">
             {'This is a demo for the Contact API project '}
             <br />
             {'Check out the documentation '}
-            <a href="https://sandersgutierrez.github.io/contacts-api-site">here!</a>.
+            <a href="https://untalsanders.github.io/contacts-api-site">here!</a>.
         </p>
     )
 }
