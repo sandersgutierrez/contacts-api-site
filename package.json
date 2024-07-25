@@ -2,6 +2,7 @@
     "name": "contacts-api-site",
     "version": "0.0.0",
     "private": "true",
+    "type": "module",
     "keywords": [
         "contacts",
         "static website"

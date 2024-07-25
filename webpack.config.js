@@ -1,26 +1,29 @@
 'use strict'
 
-const { DefinePlugin } = require('webpack')
-const { resolve } = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import webpack from 'webpack'
+import { resolve } from 'node:path'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { fileURLToPath } from 'node:url'
 
-module.exports = (env, argv) => ({
+const ROOT_DIR = resolve(fileURLToPath(import.meta.url))
+
+export default (env, argv) => ({
     mode: argv.mode || 'production',
     entry: './src/index.tsx',
     output: {
         filename: '[name].[chuckhash].js',
-        path: resolve(__dirname, 'dist'),
+        path: resolve(ROOT_DIR, 'dist'),
         publicPath: env.production ? '/contacts-api-site' : '',
         clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: [resolve(__dirname, 'src', 'assets')],
+        static: [resolve(ROOT_DIR, 'src', 'assets')],
         compress: true,
     },
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'src'),
+            '@': resolve(ROOT_DIR, 'src'),
         },
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
     },
@@ -47,7 +50,7 @@ module.exports = (env, argv) => ({
             title: 'Contacts',
             template: './src/index.html',
         }),
-        new DefinePlugin({
+        new webpack.DefinePlugin({
             BASE_URL: env.production ? JSON.stringify('/contacts-api-site') : JSON.stringify('')
         })
     ],
