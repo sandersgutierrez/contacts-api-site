@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "./dist/",
         "lib": ["dom"],
         "target": "es5",
         "module": "es6",
@@ -14,6 +15,6 @@
         "skipLibCheck": true,
         "esModuleInterop": true
     },
-    "include": ["src/**/*", "src/*"],
+    "include": ["src/**/*"],
     "exclude": ["node_module"]
 }

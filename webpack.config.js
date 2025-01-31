@@ -12,7 +12,7 @@ export default (env, argv) => ({
     entry: './src/index.tsx',
     output: {
         filename: '[name].[chuckhash].js',
-        path: resolve(ROOT_DIR, 'dist'),
+        // path: 'dist',
         publicPath: env.production ? 'https://contacts.untalsanders.dev' : '',
         clean: true,
     },
