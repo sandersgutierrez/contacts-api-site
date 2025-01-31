@@ -13,7 +13,7 @@ export default (env, argv) => ({
     output: {
         filename: '[name].[chuckhash].js',
         path: resolve(ROOT_DIR, 'dist'),
-        publicPath: env.production ? '/contacts-api-site' : '',
+        publicPath: env.production ? 'https://contacts.untalsanders.dev' : '',
         clean: true,
     },
     devtool: 'inline-source-map',
@@ -51,7 +51,7 @@ export default (env, argv) => ({
             template: './src/index.html',
         }),
         new webpack.DefinePlugin({
-            BASE_URL: env.production ? JSON.stringify('/contacts-api-site') : JSON.stringify('')
-        })
+            BASE_URL: env.production ? JSON.stringify('https://contacts.untalsanders.dev') : JSON.stringify(''),
+        }),
     ],
 })

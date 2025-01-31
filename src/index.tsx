@@ -12,7 +12,6 @@ import Home from './home'
 
 const routes = [
     {
-        path: BASE_URL,
         element: <App />,
         errorElement: <ErrorPage />,
         loader: rootLoader,

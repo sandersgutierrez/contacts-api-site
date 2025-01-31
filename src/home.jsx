@@ -6,7 +6,7 @@ export default function Home() {
             {'This is a demo for the Contact API project '}
             <br />
             {'Check out the documentation '}
-            <a href="https://untalsanders.github.io/contacts-api-site">here!</a>.
+            <a href="https://contacts.untalsanders.dev" target="_blank">here!</a>.
         </p>
     )
 }

@@ -10,6 +10,7 @@ export const loader = async ({ request }) => {
     const q = url.searchParams.get('q')
     return { contacts: await getContacts(q), q }
 }
+
 export const action = async () => {
     const contact = await createContact()
     return redirect(`${BASE_URL}/contacts/${contact.id}/edit`)
@@ -49,7 +50,7 @@ export default function App() {
                         <div className="sr-only" aria-live="polite" />
                     </Form>
                     <Form action={BASE_URL} method="post">
-                        <button type="submit">New</button>
+                        <button type="submit">New Contact</button>
                     </Form>
                 </div>
                 <nav>
