@@ -1,29 +1,33 @@
 'use strict'
 
 import webpack from 'webpack'
-import { resolve } from 'node:path'
+import { dirname, join } from 'node:path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { fileURLToPath } from 'node:url'
 
-const ROOT_DIR = resolve(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
-export default (env, argv) => ({
+const BASE_URL = 'https://untalsanders.github.io/contacts-api-site'
+
+const webpackConfig = (env, argv) => ({
     mode: argv.mode || 'production',
     entry: './src/index.tsx',
     output: {
-        filename: '[name].[chuckhash].js',
-        // path: 'dist',
-        publicPath: env.production ? 'https://contacts.untalsanders.dev' : '',
+        filename: '[name].bundle.js',
+        publicPath: env.production ? BASE_URL : '',
         clean: true,
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: [resolve(ROOT_DIR, 'src', 'assets')],
+        static: {
+            directory: join(__dirname, 'public'),
+        },
         compress: true,
+        port: 9000,
     },
     resolve: {
         alias: {
-            '@': resolve(ROOT_DIR, 'src'),
+            '@': join(__dirname, 'src'),
         },
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
     },
@@ -48,10 +52,12 @@ export default (env, argv) => ({
             },
             scriptLoading: 'defer',
             title: 'Contacts',
-            template: './src/index.html',
+            template: './public/index.html',
         }),
         new webpack.DefinePlugin({
-            BASE_URL: env.production ? JSON.stringify('https://contacts.untalsanders.dev') : JSON.stringify(''),
+            BASE_URL: env.production ? JSON.stringify(BASE_URL) : JSON.stringify(''),
         }),
     ],
 })
+
+export default webpackConfig
